@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Company Home";
+}
+
+<h1>Welcome to the Company Home page!</h1>
+<hr />
+<a href="~/company/create">Create a new company</a>
+@foreach (var v in ViewBag.Companies)
+{
+    <a href="~/company/editdetail/@v.Id">@v.Name</a>
+    <br />
+}

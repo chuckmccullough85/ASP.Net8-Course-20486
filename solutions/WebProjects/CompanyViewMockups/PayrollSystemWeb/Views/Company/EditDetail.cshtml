@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Edit Detail";
+}
+
+<form action="/company/savedata" method="post">
+    <label for="taxid">Tax Id</label>    
+    <input type="text" name="taxid" />
+    <br/>
+    <label for="name">Company Name</label>
+    <input type="text" name="name" />
+    <br />
+    <label for="addr">Street Address</label>
+    <input type="text" name="addr" />
+    <br/>
+    <input type="submit" />   
+    <a href="/company/manageResources">Manage Resources</a>
+</form>

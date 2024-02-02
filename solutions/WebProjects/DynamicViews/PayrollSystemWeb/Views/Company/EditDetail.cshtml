@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Edit Detail";
+}
+
+<form action="/company/savedata" method="post">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 form-group">
+                <label class="form-label" for="taxid">Tax Id</label>
+                <input class="form-control-sm" type="text" name="taxid" />
+            </div>
+
+            <div class="col-4 form-group">
+                <label class="form-label" for="name">Company Name</label>
+                <input class="form-control-sm" type="text" name="name" />
+            </div>
+            <div class="col-4 form-group">
+                <label class="form-label" for="addr">Street Address</label>
+                <input class="form-control-sm" type="text" name="addr" />
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-secondary" href="/company/manageResources">Manage Resources</a>
+            </div>
+        </div>
+    </div>
+</form>
