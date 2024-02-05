@@ -17,6 +17,10 @@ This independent lab demonstrates new string literal features.
 
 ---
 
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/LiteralStrings)
+
+---
+
 *Want more?*
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6hESuj1rtvc?si=9hatcctl34NakhaV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
