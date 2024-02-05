@@ -1,0 +1,29 @@
+﻿@{
+}
+
+<form action="~/Company/SaveDetail" method="post">
+	<input type="hidden" value="@ViewBag.Id" name="Id" />
+	<div class="row">
+		<div class="form-group col-sm">
+			<label for="TaxId">Tax Id</label>
+			<input name="TaxId" class="form-control" value="@ViewBag.TaxId" />
+		</div>
+		<div class="form-group col-sm">
+			<label for="Name">Name</label>
+			<input name="Name" class="form-control" value="@ViewBag.Name" />
+		</div>
+		<div class="form-group col-sm">
+			<label for="Address">Address</label>
+			<input name="Address" class="form-control" value="@ViewBag.Address" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm">
+			<input type="submit" class="btn btn-primary" />
+		</div>
+		<div class="col-sm">
+			<a class="btn btn-primary" href="~/Company/ManageResources">Resources</a>
+		</div>
+	</div>
+
+</form>
