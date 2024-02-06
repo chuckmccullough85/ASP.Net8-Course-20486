@@ -7,6 +7,6 @@
 
 @foreach (var v in ViewBag.Companies)
 {
-    <a href="~/company/editdetail/@v.Id">@v.Name</a>
+    <a asp-action="EditDetail" asp-route-id="@v.Id">@v.Name</a>
     <br />
 }
