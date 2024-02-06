@@ -23,12 +23,15 @@ public class WebScannerTask
             foreach (var key in Keywords)
                 tasks.Add(Task.Run(()=>GetKeywordCount(url, key)));
         
+       // foreach (var t in tasks)
+         //   list.Add(t.Result);
+
+
         while (tasks.Count > 0)
         {
             var t = Task.WhenAny(tasks).Result;
             tasks.Remove(t);
             list.Add(t.Result);
-            Console.WriteLine($"Getting Results with thread {Thread.CurrentThread.ManagedThreadId}");
         }
 
         return list;

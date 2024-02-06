@@ -30,3 +30,6 @@ To support models in the _ManageResources_ view, the model needs to support a p
 1. Add a property to the *ManageResourcesModel* named *NonEmployees* of type ```IEnumerable<SelectListItem>``` and initialize from the non-employees list.
 1. Add properties to hold the selected employee and non-employee ids. These need to be optional.
 1. Add a property to hold the company id. Initialize this from the constructor.
+
+
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/WebProjects/Models/PayrollSystemWeb)

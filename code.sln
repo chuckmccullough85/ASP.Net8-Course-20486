@@ -61,6 +61,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XUnit", "XUnit", "{A022888C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystemLibrary-XUnit", "solutions\XUnit\PayrollSystemLibrary\PayrollSystemLibrary-XUnit.csproj", "{84F4833A-89CA-4E3B-8BB9-FC892C6E6A0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystemTest-Xunit", "solutions\XUnit\PayrollSystemTest\PayrollSystemTest-Xunit.csproj", "{0B351E63-878C-4A6A-AD50-2E42F4015706}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +145,10 @@ Global
 		{84F4833A-89CA-4E3B-8BB9-FC892C6E6A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84F4833A-89CA-4E3B-8BB9-FC892C6E6A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84F4833A-89CA-4E3B-8BB9-FC892C6E6A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B351E63-878C-4A6A-AD50-2E42F4015706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B351E63-878C-4A6A-AD50-2E42F4015706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B351E63-878C-4A6A-AD50-2E42F4015706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B351E63-878C-4A6A-AD50-2E42F4015706}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -175,6 +181,7 @@ Global
 		{E425143B-A203-4F54-86C4-315EC1B21FE9} = {EE754C3C-C0FF-43BD-A683-E3448247204A}
 		{A022888C-E08A-4C50-9D99-D650DB2ECA4F} = {C68E5A0A-041F-4A16-8887-7E775082CD8F}
 		{84F4833A-89CA-4E3B-8BB9-FC892C6E6A0E} = {A022888C-E08A-4C50-9D99-D650DB2ECA4F}
+		{0B351E63-878C-4A6A-AD50-2E42F4015706} = {A022888C-E08A-4C50-9D99-D650DB2ECA4F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF7D9F51-96FD-4B55-8C3B-6143066BC1EF}

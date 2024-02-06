@@ -12,6 +12,10 @@ public class CompanyController : Controller
     {
         return View();
     }
+    public IActionResult SaveDetail()
+    {
+        return View("Index");
+    }
     public IActionResult ManageResources() 
     {
         return View();

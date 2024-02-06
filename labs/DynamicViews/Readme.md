@@ -30,3 +30,6 @@ public record IdName(int Id, string Name);
 
 ### Challenge
 Create an isolated stylesheet for *Company/Index* and use it to style the horizontal rule or any other element on the page.
+
+
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/WebProjects/DynamicViews)

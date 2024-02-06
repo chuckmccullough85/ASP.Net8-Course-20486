@@ -23,3 +23,5 @@ In _EditDetail.cshtml_, the names of the input fields are _TaxId, Name, Address_
 > Note - SaveDetail does not create a model for "Index."  Change to _RedirectToAction._
 
 ---
+
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/WebProjects/FormSubmit/PayrollSystemWeb)
