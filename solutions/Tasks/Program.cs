@@ -12,7 +12,7 @@ scanner.Urls = new string[] {
     "https://trainmyprogrammers.com",
     "https://www.udemy.com"
 };
-var results = await scanner.Go();
+var results = scanner.Go();
 foreach (var r in results)
     Console.WriteLine(r);
 

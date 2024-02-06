@@ -1,5 +1,6 @@
 1. [First Project](FirstProject)
 1. [Literal Strings](LiteralStrings)
+1. [Tuples](Tuples)
 1. [Records](Records)
 1. [Deconstruction](Deconstruction)
 1. [NullOperators](NullOperators)

@@ -10,6 +10,7 @@ Console.WriteLine(data.Name);
 
 Employee hank = new Employee(3, "Hank Hill", 300, DateTime.Parse("1/10/1995"));
 
+
 var (_, n, sal, t) = hank;
 Console.WriteLine($"{n} makes {sal:c} and has worked here {t} years");
 Employee peg = new Employee(3, "Peggy Hill", 310, DateTime.Parse("12/1/2005"));

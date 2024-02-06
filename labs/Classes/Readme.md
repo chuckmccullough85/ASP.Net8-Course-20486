@@ -82,3 +82,9 @@ namespace Classes
 }
 ```
 
+---
+
+
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/Classes)
+
+---

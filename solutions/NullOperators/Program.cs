@@ -1,5 +1,5 @@
 ﻿
-//--- deconstruction lab
+//--- null reference lab
 
 using Classes;
 

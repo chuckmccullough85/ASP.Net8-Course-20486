@@ -44,3 +44,6 @@ override public string ToString()
 
 ```
 
+---
+
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/NullOperators)

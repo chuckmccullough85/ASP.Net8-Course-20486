@@ -1,3 +1,6 @@
+## Overview
+Let's try some tuples!!!
+
 | | |
 | --------- | --------------------------- |
 | Exercise Folder | Tuples |
@@ -16,3 +19,8 @@
 
 ### Challenge
 Create an alias for the tuple to use for the method return type instead of the expanded tuple.
+
+
+---
+
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/Tuples)

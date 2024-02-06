@@ -31,3 +31,7 @@ We begin by customizing the web application main template.  Note, rather than r
 
 
 ![img](https://www.trainmyprogrammers.com/api/User/Image/11)
+
+---
+
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/WebProjects/Layout/PayrollSystemWeb)

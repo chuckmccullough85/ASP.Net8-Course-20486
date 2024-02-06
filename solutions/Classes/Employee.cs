@@ -9,6 +9,7 @@ public class Employee
         LastName = "";
         Salary = salary;
         Hiredate = hiredate;
+        HomePhone = "";
     }
     public int Id { get; init; }
     public string FirstName { get; set; }
@@ -33,13 +34,12 @@ public class Employee
     }
     public void Deconstruct(out string name, out int tenure) => (_, name, _, tenure) = this;
 
-    public override string ToString()
-        => $"{FullName} has worked here {Tenure} years";
+    public override string ToString() => $"{FullName} has worked here {Tenure} years";
 
     public override bool Equals(object? obj) => obj is Employee employee &&
-               Id == employee.Id &&
-               FirstName == employee.FirstName &&
-               LastName == employee.LastName;
+            Id == employee.Id &&
+            FirstName == employee.FirstName &&
+            LastName == employee.LastName;
 
     public override int GetHashCode()
         => HashCode.Combine(Id, FirstName, LastName);

@@ -1,3 +1,6 @@
+## Overview
+In this lab, you will create a simple console application that uses a thread to watch a directory for changes.
+
 | | |
 | --------- | --------------------------- |
 | Exercise Folder | Threads |
@@ -40,3 +43,6 @@ public class DirectoryWatcher
 }
 ```
 ---
+
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/Threads)
+

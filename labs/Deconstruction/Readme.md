@@ -49,6 +49,9 @@ public class Employee
     - (name, tenure)
 1. Update Program.cs to test 
 
+---
+
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/Deconstruction) 
 
 ---
 <br/>

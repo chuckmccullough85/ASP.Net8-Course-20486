@@ -13,6 +13,8 @@ In this exercise, we modify the **Tasks** lab to use Async
 
 ---
 
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/Async)
+
 ---
 <br/>
 <br/>

@@ -13,29 +13,9 @@ Continue with Tuples project
 1. Modify *GetEmployeeInfo* to return a record of type *EmployeeInfo*
 1. Update top-level code  
 
-:::spoiler
-*EmployeeService.cs*
-```c#
-namespace RecordsLab;
+---
 
-internal record EmployeeInfo (int Id, string Name, float YtdEarnings);
-internal class EmployeeService
-{
-    public EmployeeInfo GetEmployeeInfo(int id)
-    {
-        // Get employee info from database
-        return new EmployeeInfo(id, "John Doe", 10000.00f);
-    }
-}
-```
-
-*Program.cs*
-```c#
-var svc = new EmployeeService();
-var employee = svc.GetEmployeeInfo(1);
-Console.WriteLine(employee);
-```
-:::
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/Records)
 
 --- 
 <br/>
