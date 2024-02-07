@@ -69,7 +69,7 @@ public class Employee
 
 ---
 
-:::spoiler
+
 *EmployeeTests*
 ```c#
 
@@ -113,19 +113,6 @@ public class EmployeeTests
 }
 ```
 
-*Employee (just the new stuff)*
-
-```c#
-public double YTDEarnings { get; private set; }
-
-public double Pay()
-{
-    var tax = Salary * .0765f;
-    YTDEarnings += Salary;
-    return Salary - tax;
-}
-```
-:::
 
 
 [Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/XUnit/PayrollSystemLibrary)

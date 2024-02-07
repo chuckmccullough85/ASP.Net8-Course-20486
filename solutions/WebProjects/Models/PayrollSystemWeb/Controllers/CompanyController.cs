@@ -4,17 +4,18 @@ using PayrollSystemWeb.Models;
 
 namespace PayrollSystemWeb.Controllers
 {
+    [AutoValidateAntiforgeryToken]
     public class CompanyController : Controller
     {
         public IActionResult Index()
         {
-            ViewBag.model = new[]
+           var model = new[]
             {
                 new IdName(1, "Stricland Propane"),
                 new IdName(2, "Dales Deadbug"),
                 new IdName(3, "Boggle International")
             }; 
-            return View();
+            return View(model);
         }
         [HttpGet]
         public IActionResult EditDetail(int id)
@@ -50,10 +51,12 @@ namespace PayrollSystemWeb.Controllers
             return View(model);
         }
 
+        [HttpPost]
         public IActionResult Hire()
         {
             return RedirectToAction("ManageResources");
         }
+        [HttpPost]
         public IActionResult Terminate()
         {
             return RedirectToAction("ManageResources");

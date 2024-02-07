@@ -1,8 +1,7 @@
 ﻿@{
 }
 
-<form action="~/Company/SaveDetail" method="post">
-	<input type="hidden" value="@ViewBag.Id" name="Id" />
+<form asp-action="SaveDetail" asp-route-id = "@ViewBag.Id">
 	<div class="row">
 		<div class="form-group col-sm">
 			<label for="TaxId">Tax Id</label>

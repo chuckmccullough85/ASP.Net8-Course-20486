@@ -1,0 +1,14 @@
+﻿@model IEnumerable<IdName>
+@{
+    ViewBag.Title = "Employees";
+}
+
+<h1>Employee Management</h1>
+<hr/>
+
+<ul>
+    @foreach(var item in Model)
+    {
+        <li><a asp-action="EditDetail" asp-route-id="@item.Id">@item.Name</a></li>
+    }
+</ul>

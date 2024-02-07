@@ -13,13 +13,13 @@
 			</div>
 			<div class="col-sm-auto">
 				<div class="container text-center">
-					<input formaction="~/Company/Hire" type="submit" class="btn btn-outline-primary" value="Hire" />
+					<input asp-action="Hire" type="submit" class="btn btn-outline-primary" value="Hire" />
 					<br />
-					<input formaction="~/Company/Terminate" type="submit" class="btn btn-outline-primary" value="Terminate" />
+					<input asp-action="Terminate" type="submit" class="btn btn-outline-primary" value="Terminate" />
 				</div>
 			</div>
 			<div class="col-sm-auto">
-				<label>Available</label><br />
+				<label>Employed</label><br />
 				<select asp-items="@Model.Employees" asp-for="SelectedEmployee" class="form-control" size="10">
 				</select>
 			</div>

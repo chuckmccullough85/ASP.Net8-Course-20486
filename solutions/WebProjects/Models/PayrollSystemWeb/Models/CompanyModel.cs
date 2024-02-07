@@ -5,7 +5,7 @@ namespace PayrollSystemWeb.Models
 {
     public record CompanyDetailModel(
         int Id,
-        [RegularExpression(@"\d\d-\d{7}")] string TaxId,
+        [RegularExpression(@"\d\d-\d{7}", ErrorMessage = "Tax id should be 12-1234567" )] string TaxId,
         [RegularExpression(@"[\w\s',.$-]{2,30}")] string Name,
         [RegularExpression(@"[\w\s',.$-]{2,30}")] string Address
         );

@@ -1,3 +1,5 @@
+## Overview
+
 In this lab, we will use Moq for testing companies
 
 | | |
@@ -97,6 +99,11 @@ public class Company
     }
 }
 ```
+
+--- 
+
+[Solution](https://github.com/chuckmccullough85/ASP.Net8-Course-20486/tree/main/solutions/Moq)
+
 
 ---
 
