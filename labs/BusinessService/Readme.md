@@ -12,71 +12,20 @@ In this lab, we will create some sample data and specify and implement our busin
 3. In the constructor, create a context, delete and create the database
 4. Add some sample data and save the context
 5. Implement **IDisposable** and dispose the context
-6. Create a do-nothing fact and run it - examine your database.
-
-Note - we need to remove *Id* from the *Employee* class constructor - the db will assign the Id.
-
-::: spoiler
-*PayrollSystemDbTests*
-```c#
-
-using PayrollSystemLib;
-
-namespace PayrollSystemTest;
-
-public class PayrollServiceDbTests : IDisposable
-{
-    private readonly PayrollDbContext ctx;
-    public PayrollServiceDbTests()
-    {
-        ctx = new PayrollDbContext();
-        ctx.Database.EnsureDeleted();
-        ctx.Database.EnsureCreated();
-
-        var c1 = new Company("Acme", "12-4567890", "123 Main St");
-        var c2 = new Company("Widgets", "98-6543210", "456 Main St");
-        var c3 = new Company("SynerTech", "11-1234567", "789 Main St");
-        var e1 = new Employee("Bob", 100, new DateTime(2010, 1, 1));
-        var e2 = new Employee("Sue", 200, new DateTime(2015, 1, 1));
-        var e3 = new Employee("Tom", 300, new DateTime(2020, 1, 1));
-        var e4 = new Employee("Ann", 150, new DateTime(2021, 1, 1));
-        var e5 = new Employee("Joe", 250, new DateTime(2021, 1, 1));
-        var e6 = new Employee("Tim", 350, new DateTime(2021, 1, 1));   
-        c1.Hire(e1);
-        c1.Hire(e2);
-        c2.Hire(e3);
-        c2.Hire(e4);
-        c3.Hire(e5);
-
-        ctx.Companies.AddRange(c1, c2, c3);
-        ctx.Employees.Add(e6);
-        ctx.SaveChanges();
-    }
-
-    public void Dispose()
-    {
-        ctx.Dispose();
-    }
-
-    [Fact]
-    public void Test_Companies()
-    {
-    }
-}
-```
-:::
+ 
 
 ### The Service Class
 
 1. Create a new class named *PayrollService* that implements the *IPayrollService* interface
 2. Use the quick fix to generate all the methods in the interface
-3. Define a constructor that accepts a PayrollDbContext as an argument - save it to an instance variable
+3. Define a constructor that accepts a PayrollDbContext as an argument - save it to an instance variable (or use a primary constructor)
 
 ### Just the Facts 
 1. Create simple facts in the test class to check the results of each service method.  Don't get too detailed, just make simple checks. 
 2. All tests should fail since all of the methods in the service class throw exceptions.
 
-::: spoiler
+
+
 *The facts*
 ```c#
 [Fact]
@@ -155,112 +104,8 @@ public void TestGetEmployee()
     Assert.Equal("Robert", emp2.FirstName);
 }
 ```
-:::
 
 
 ### Service Class Implementation
 Using the context and Linq, implement each of the service methods.  Verify with success test runs.
 
-::: spoiler
-```c#
-
-namespace PayrollSystemLib;
-
-public class PayrollService : IPayrollService
-{
-    private readonly PayrollDbContext ctx;
-    public PayrollService(PayrollDbContext ctx)
-    {
-        this.ctx = ctx;
-    }
-
-    public void DeleteEmployee(int id)
-    {
-        var emp = ctx.Employees.Find(id);
-        if (emp != null) 
-        {
-            ctx.Remove(emp);
-            ctx.SaveChanges();
-        }
-    }
-
-    public IEnumerable<IdName> GetCompanies() 
-        => ctx.Companies.Select(c => new IdName(c.Id, c.Name)).ToList();
-
-    public (int Id, string Name, string TaxId, string Address) GetCompany(int id)
-    {
-        var c = ctx.Companies.Find(id);
-        if (c == null) throw new InvalidOperationException("Company not found");
-        return (c.Id, c.Name, c.TaxId, c.Address);
-    }
-
-    public (int Id, string FirstName, string LastName, double Salary, DateTime HireDate, string? Phone) 
-        GetEmployee(int id)
-    {
-        var e = ctx.Employees.Find(id);
-        if (e == null) throw new InvalidOperationException("Employee not found");
-        return (e.Id, e.FirstName, e.LastName, e.Salary, e.Hiredate, e.HomePhone);
-    }
-
-    public IEnumerable<IdName> GetEmployees(int companyId) 
-        => ctx.Companies
-            .Find(companyId)?.Payables.Select(e => new IdName(e.Id, e.FullName)).ToList()
-            ?? new List<IdName>();
-
-    public IEnumerable<IdName> GetEmployees() 
-        => ctx.Employees.Select(e => new IdName(e.Id, e.FullName)).ToList();
-
-    public IEnumerable<IdName> GetNonEmployees(int companyId)
-    {
-        var all = GetEmployees();
-        var emps = GetEmployees(companyId);
-        return all.Except(emps);
-    }
-
-    public void Hire(int compId, int empId)
-    {
-        var comp = ctx.Companies.Find(compId);
-        var emp = ctx.Employees.Find(empId);
-        if (comp == null || emp == null) throw new InvalidOperationException("Company or Employee not found");
-        comp.Hire(emp);
-        ctx.SaveChanges();
-    }
-
-    public void Pay(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void SaveCompany(int id, string name, string address, string taxId)
-    {
-        var comp = ctx.Companies.Find(id);
-        if (comp == null) throw new InvalidOperationException("Company not found");
-        comp.Name = name;
-        comp.Address = address;
-        comp.TaxId = taxId;
-        ctx.SaveChanges();
-    }
-
-    public void SaveEmployee(int id, string firstName, string lastName, double salary, DateTime hireDate, string phone)
-    {
-        var emp = ctx.Employees.Find(id);
-        if (emp == null) throw new InvalidOperationException("Employee not found");
-        emp.FirstName = firstName;
-        emp.LastName = lastName;
-        emp.Salary = salary;
-        emp.HomePhone = phone;
-        ctx.SaveChanges();
-    }
-
-    public void Terminate(int compId, int empId)
-    {
-        var comp = ctx.Companies.Find(compId);
-        var emp = ctx.Employees.Find(empId);
-        if (comp == null || emp == null) throw new InvalidOperationException("Company or Employee not found");
-        comp.Payables.Remove(emp);
-        ctx.SaveChanges();
-    }
-}
-
-```
-:::

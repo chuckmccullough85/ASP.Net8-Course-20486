@@ -1,10 +1,14 @@
+using Microsoft.EntityFrameworkCore;
 using PayrollSystemLib;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IPayrollService, FakePayrollService>();
+var connectionString = builder.Configuration.GetConnectionString("paydb");
+builder.Services.AddDbContext<PayrollDbContext>(options => 
+    options.UseSqlite(connectionString));
+builder.Services.AddScoped<IPayrollService, PayrollService>();
 
 
 var app = builder.Build();

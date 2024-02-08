@@ -6,6 +6,7 @@ namespace PayrollSystemWeb.Controllers;
 
 public class CompanyController(IPayrollService svc) : Controller
 {
+
     public IActionResult Index()
     {
         ViewBag.model = svc.GetAllCompanies();
