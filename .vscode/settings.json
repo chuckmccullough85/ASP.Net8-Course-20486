@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "payroll",
+            "database": "${workspaceFolder:code}/solutions/WebProjects/EntityFramework/PayrollSystemTest/bin/Debug/payroll.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

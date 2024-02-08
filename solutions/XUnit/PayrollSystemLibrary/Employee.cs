@@ -26,12 +26,7 @@ public class Employee
     }
     public double YTDEarnings { get; private set; }
 
-    public double Pay()
-    {
-        var tax = Salary * .0765f;
-        YTDEarnings += Salary;
-        return Salary - tax;
-    }
+
     public void Deconstruct(out int id, out string name, out double salary, out int tenure)
     {
         id = Id; name = FirstName; salary = Salary; tenure = Tenure;
@@ -48,4 +43,11 @@ public class Employee
 
     public override int GetHashCode()
         => HashCode.Combine(Id, FirstName, LastName);
+
+    public double Pay()
+    {
+        var tax = Salary * .0765f;
+        YTDEarnings += Salary;
+        return Salary - tax;
+    }
 }

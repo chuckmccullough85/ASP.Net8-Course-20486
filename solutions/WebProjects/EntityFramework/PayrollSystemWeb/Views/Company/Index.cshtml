@@ -1,0 +1,12 @@
+﻿
+@{
+	ViewData["Title"] = "Company Home";
+}
+
+<h1>Company Home Page</h1>
+<hr/>
+<ul>
+	@foreach (PayrollSystemLib.IdName o in ViewBag.model) {
+	<li><a href="~/Company/EditDetail/@o.Id">@o.Name</a></li>
+	}
+</ul>
