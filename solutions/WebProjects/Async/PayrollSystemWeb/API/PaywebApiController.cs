@@ -22,22 +22,22 @@ public class PaywebApiController : ControllerBase
 
     [Route("payall/{id}")]
     [HttpPost]
-    public double PayAll(int id, IPayrollService svc)
+    public async Task<double> PayAll(int id, IPayrollService svc)
     {
-        return svc.PayAll(id);
+        return await svc.PayAll(id);
     }
 
     [HttpPost, Route("company")]
-    public IActionResult AddCompany(CompanyDetailModel company, IPayrollService svc)
+    public async Task<IActionResult> AddCompany(CompanyDetailModel company, IPayrollService svc)
     {
-        var c = svc.AddCompany(company.Name, company.TaxId, company.Address);
+        var c = await svc.AddCompany(company.Name, company.TaxId, company.Address);
         return Ok(c.Id);
     }
 
     [HttpPost, Route("employee")]
-    public IActionResult AddEmployee(EmployeeDetailModel employee, IPayrollService svc)
+    public async Task<IActionResult> AddEmployee(EmployeeDetailModel employee, IPayrollService svc)
     {
-        var result = svc.AddEmployee(employee.FirstName, employee.LastName, employee.Salary, employee.HireDate, employee.HomePhone);
+        var result = await svc.AddEmployee(employee.FirstName, employee.LastName, employee.Salary, employee.HireDate, employee.HomePhone);
         return Ok(result.Id);
     }
 
@@ -46,7 +46,7 @@ public class PaywebApiController : ControllerBase
     {
         var result = svc.GetEmployee(id);
         var emp = new EmployeeDetailModel(result.Id, result.FirstName, result.LastName, 
-        result.Salary, result.HireDate, result.Phone ?? "", result.YtdPay);
+                result.Salary, result.HireDate, result.Phone ?? string.Empty, result.YtdPay);
         return Ok(emp);
     }
 

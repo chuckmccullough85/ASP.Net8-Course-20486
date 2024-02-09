@@ -1,0 +1,51 @@
+﻿@model EmployeeDetailModel
+@{
+ViewBag.Title = $"Employee - {Model.FirstName} {Model.LastName}";
+}
+
+<form asp-action="Save" asp-route-id="@Model.Id">
+    <div class="row">
+        <div class="col">
+            <label asp-for="FirstName" class="col-form-label"></label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="alert-danger"></span>
+        </div>
+        <div class="col">
+            <label asp-for="LastName" class="col-form-label"></label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="alert-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <label asp-for="Salary" class="col-form-label"></label>
+            <input asp-for="Salary" class="form-control" />
+            <span asp-validation-for="Salary" class="alert-danger"></span>
+        </div>
+        <div class="col">
+            <label asp-for="HomePhone" class="col-form-label"></label>
+            <input asp-for="HomePhone" class="form-control" />
+            <span asp-validation-for="HomePhone" class="alert-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>YTD Earnings: @($"{Model.YtdPay:c}")</p>
+        </div>
+    <div class="row">
+        <div class="col">
+            <input type="submit" class="btn btn-primary" value="Save"/>
+        </div>
+        <div class="col">
+            <a class="btn btn-secondary" asp-action="Pay" asp-route-id="@Model.Id">Pay</a>
+        </div>
+        <div class="col">
+            <a class="btn btn-secondary" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+        </div>
+        <div class="col">
+            <a class="btn btn-secondary"  asp-action="Index">Cancel</a>
+        </div>
+    </div>
+
+
+</form>

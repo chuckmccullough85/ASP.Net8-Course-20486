@@ -1,0 +1,33 @@
+﻿@model CompanyDetailModel
+@{
+}
+
+<form action="~/Company/SaveDetail" method="post">
+	<input type="hidden" asp-for="Id" />
+	<div class="row">
+		<div class="form-group col-sm">
+			<label asp-for="TaxId">Tax Id</label>
+			<input asp-for="TaxId" class="form-control" />
+			<span asp-validation-for="TaxId"></span>
+		</div>
+		<div class="form-group col-sm">
+			<label asp-for="Name">Name</label>
+			<input asp-for="Name" class="form-control" />
+			<span asp-validation-for="Name"></span>
+		</div>
+		<div class="form-group col-sm">
+			<label asp-for="Address">Address</label>
+			<input asp-for="Address" class="form-control" />
+			<span asp-validation-for="Address"></span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm">
+			<input type="submit" class="btn btn-primary" />
+		</div>
+		<div class="col-sm">
+			<a class="btn btn-primary" asp-action="ManageResources" asp-route-id="@Model.Id">Resources</a>
+		</div>
+	</div>
+
+</form>
