@@ -2,6 +2,22 @@ namespace PayrollSystemLib;
 
 public class PayrollService(PayrollDbContext ctx) : IPayrollService
 {
+    public (int Id, string Name, string Taxid, string Address) AddCompany(string name, string address, string taxId)
+    {
+        var c = new Company { Name = name, Address = address, TaxId = taxId };
+        ctx.Companies.Add(c);
+        ctx.SaveChanges();
+        return (c.Id, c.Name, c.TaxId, c.Address);
+    }
+
+    public (int Id, string FirstName, string LastName, double Salary, DateTime HireDate, string? Phone, double YtdPay) AddEmployee(string firstName, string lastName, double salary, DateTime hireDate, string homePhone)
+    {
+        var e = new Employee { FirstName = firstName, LastName = lastName, Salary = salary, Hiredate = hireDate, HomePhone = homePhone };
+        ctx.Employees.Add(e);
+        ctx.SaveChanges();
+        return (e.Id, e.FirstName, e.LastName, e.Salary, e.Hiredate, e.HomePhone, e.YTDEarnings);
+    }
+
     public void DeleteEmployee(int id)
     {
         var emp = ctx.Employees.Find(id);

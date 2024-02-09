@@ -6,6 +6,9 @@ using EmployeeDetail = (int Id, string FirstName, string LastName, double Salary
 public record IdName(int Id, string Name);
 public interface IPayrollService
 {
+    CompanyDetail AddCompany(string name, string address, string taxId);
+    EmployeeDetail AddEmployee(string firstName, string lastName, double salary, DateTime hireDate, string homePhone);
+    
     void DeleteEmployee(int id);
     IEnumerable<IdName> GetAllCompanies();
     CompanyDetail GetCompanyDetail(int id);
