@@ -5,14 +5,14 @@ public class PayrollService(PayrollDbContext ctx) : IPayrollService
     public void DeleteEmployee(int id)
     {
         var emp = ctx.Employees.Find(id);
-        if (emp != null) 
+        if (emp != null)
         {
             ctx.Remove(emp);
             ctx.SaveChanges();
         }
     }
 
-    public IEnumerable<IdName> GetAllCompanies() 
+    public IEnumerable<IdName> GetAllCompanies()
         => ctx.Companies.Select(c => new IdName(c.Id, c.Name)).ToList();
 
     public (int Id, string Name, string Taxid, string Address) GetCompanyDetail(int id)
@@ -23,7 +23,7 @@ public class PayrollService(PayrollDbContext ctx) : IPayrollService
     }
 
 
-    public (int Id, string FirstName, string LastName, double Salary, DateTime HireDate, string? Phone, double YtdPay) 
+    public (int Id, string FirstName, string LastName, double Salary, DateTime HireDate, string? Phone, double YtdPay)
         GetEmployee(int id)
     {
         var e = ctx.Employees.Find(id);
@@ -31,12 +31,12 @@ public class PayrollService(PayrollDbContext ctx) : IPayrollService
         return (e.Id, e.FirstName, e.LastName, e.Salary, e.Hiredate, e.HomePhone, e.YTDEarnings);
     }
 
-    public IEnumerable<IdName> GetEmployees(int companyId) 
+    public IEnumerable<IdName> GetEmployees(int companyId)
         => ctx.Companies
             .Find(companyId)?.Payables.Select(e => new IdName(e.Id, e.FullName)).ToList()
             ?? new List<IdName>();
 
-    public IEnumerable<IdName> GetEmployees() 
+    public IEnumerable<IdName> GetEmployees()
         => ctx.Employees.Select(e => new IdName(e.Id, e.FullName)).ToList();
 
     public IEnumerable<IdName> GetNonEmployees(int companyId)
@@ -59,7 +59,15 @@ public class PayrollService(PayrollDbContext ctx) : IPayrollService
 
     public void Pay(int id)
     {
-       
+        ctx.Employees.Find(id)?.Pay();
+        ctx.SaveChanges();
+    }
+
+    public double PayAll(int compId)
+    {
+        var n = ctx.Companies.Find(compId)?.Pay();
+        ctx.SaveChanges();
+        return n ?? 0;
     }
 
     public void SaveCompany(int id, string name, string address, string taxId)

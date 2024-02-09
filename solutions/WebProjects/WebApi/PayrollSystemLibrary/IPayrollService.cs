@@ -16,6 +16,7 @@ public interface IPayrollService
     IEnumerable<IdName> GetNonEmployees(int id);
     void Hire(int companyId, int? selectedNonEmployeeId);
     void Pay(int id);
+    double PayAll(int compId);
     void SaveCompany(int id, string name, string address, string taxId);
     void SaveEmployee(int id, string firstName, string lastName, double salary, DateTime hireDate, string homePhone);
     void Terminate(int companyId, int? selectedEmployeeId);

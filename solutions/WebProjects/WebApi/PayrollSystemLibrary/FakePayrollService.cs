@@ -24,10 +24,10 @@ public class FakePayrollService : IPayrollService
         return (id, "Company " + id, "12-1234567", "123 Main St.");
     }
 
-    public (int Id, string FirstName, string LastName, double Salary, DateTime HireDate, string Phone, double YtdPay)
+    public (int Id, string FirstName, string LastName, double Salary, DateTime HireDate, string Phone)
      GetEmployee(int id)
     {
-        return (id, "Hank", "Hill", 1000, DateTime.Now, "123-456-7890", 20);
+        return (id, "Hank", "Hill", 1000, DateTime.Now, "123-456-7890");
     }
 
     public IEnumerable<IdName> GetEmployees(int id)
@@ -74,6 +74,11 @@ public class FakePayrollService : IPayrollService
         
     }
 
+    public double PayAll(int compId)
+    {
+        throw new NotImplementedException();
+    }
+
     public void SaveCompany(int id, string name, string address, string taxId)
     {
         
@@ -87,5 +92,10 @@ public class FakePayrollService : IPayrollService
     public void Terminate(int companyId, int? selectedEmployeeId)
     {
         
+    }
+
+    (int Id, string FirstName, string LastName, double Salary, DateTime HireDate, string? Phone, double YtdPay) IPayrollService.GetEmployee(int id)
+    {
+        throw new NotImplementedException();
     }
 }

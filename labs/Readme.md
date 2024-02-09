@@ -18,3 +18,11 @@
 1. [XUnit](XUnit)
 1. [Moq](Moq)
 1. [EmployeeController](EmployeeController)
+1. [Dependency Injection Part 1](DependencyInjection-1)
+1. [Dependency Injection Part 2](DependencyInjection-2)
+1. [Linq](Linq)
+1. [Entity Framework](EntityFramework)
+1. [Business Service](BusinessService)
+1. [Integrating Payroll System](IntegratingPaySys)
+
+

@@ -1,0 +1,29 @@
+﻿@model ManageResourcesModel
+@{
+}
+<h1>Manage Employees - [company]</h1>
+<hr />
+<div class="container-fluid">
+	<form asp-controller="Company">
+		<input type="hidden" asp-for="CompanyId" />
+		<div class="row">
+			<div class="col-sm-auto">
+				<label>Available</label><br />
+				<select asp-items="@Model.NonEmployees" asp-for="SelectedNonEmployee" class="form-control" size="10">
+				</select>
+			</div>
+			<div class="col-sm-auto">
+				<div class="container text-center">
+					<input asp-action="Hire" type="submit" class="btn btn-outline-primary" value="Hire" />
+					<br />
+					<input asp-action="Terminate" type="submit" class="btn btn-outline-primary" value="Terminate" />
+				</div>
+			</div>
+			<div class="col-sm-auto">
+				<label>Employed</label><br />
+				<select asp-items="@Model.Employees" asp-for="SelectedEmployee" class="form-control" size="10">
+				</select>
+			</div>
+		</div>
+	</form>
+</div>

@@ -32,23 +32,23 @@ In this lab, we will create some sample data and specify and implement our busin
 public void TestGetCompanies()
 {
     //Act
-    var companies = sut.GetCompanies();
+    var companies = sut.GetAllCompanies();
     //Assert
     Assert.Equal(3, companies.Count());
 }
 [Fact]
 public void TestGetCompany()
 {
-    var comp = sut.GetCompany(1);
+    var comp = sut.GetCompanyDetail(1);
     Assert.Equal("Acme", comp.Name);
 }
 [Fact]
 public void TestSaveCompany()
 {
-    var comp = sut.GetCompany(1);
+    var comp = sut.GetCompanyDetail(1);
     comp.Name = "Acme, Inc.";
-    sut.SaveCompany(1, "Acme, Inc.", comp.Address, comp.TaxId);
-    var comp2 = sut.GetCompany(1);
+    sut.SaveCompany(1, "Acme, Inc.", comp.Address, comp.Taxid);
+    var comp2 = sut.GetCompanyDetail(1);
     Assert.Equal("Acme, Inc.", comp2.Name);
 }
 [Fact]
@@ -63,29 +63,34 @@ public void TestGetEmployee()
     var emp = sut.GetEmployee(1);
     Assert.Equal("Tim", emp.FirstName);
 }
-[Fact] void TestGetCompanyEmployees()
+[Fact]
+void TestGetCompanyEmployees()
 {
     var emps = sut.GetEmployees(1);
     Assert.Equal(2, emps.Count());
 }
-[Fact] void TestDeleteEmployee()
+[Fact]
+void TestDeleteEmployee()
 {
     sut.DeleteEmployee(1);
     var emps = sut.GetEmployees();
     Assert.Equal(5, emps.Count());
 }
-[Fact] void TestGetNonEmployees()
+[Fact]
+void TestGetNonEmployees()
 {
     var emps = sut.GetNonEmployees(1);
     Assert.Equal(4, emps.Count());
 }
-[Fact] void TestHire()
+[Fact]
+void TestHire()
 {
     sut.Hire(1, 6);
     var emps = sut.GetEmployees(1);
     Assert.Equal(3, emps.Count());
 }
-[Fact] void TestTerminate()
+[Fact]
+void TestTerminate()
 {
     var comp = ctx.Companies.First();
     var emp = comp.Payables.First();
@@ -95,7 +100,8 @@ public void TestGetEmployee()
     Assert.Equal(count - 1, emps.Count());
 }
 
-[Fact] void TestSaveEmployee()
+[Fact]
+void TestSaveEmployee()
 {
     var emp = sut.GetEmployee(1);
     emp.FirstName = "Robert";
