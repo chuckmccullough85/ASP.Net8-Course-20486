@@ -55,7 +55,7 @@ public class PayrollService(PayrollDbContext ctx) : IPayrollService
     public IEnumerable<IdName> GetEmployees(int companyId)
         => ctx.Companies
             .Find(companyId)?.Payables.Select(e => new IdName(e.Id, e.FullName)).ToList()
-            ?? new List<IdName>();
+            ?? Enumerable.Empty<IdName>();
 
     public IEnumerable<IdName> GetEmployees()
         => ctx.Employees.Select(e => new IdName(e.Id, e.FullName)).ToList();
